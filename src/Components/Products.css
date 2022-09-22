@@ -1,0 +1,16 @@
+#products_container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.product {
+    margin: 5px;
+    width: 150px;
+    border: 2px solid black;
+}
+
+.product img {
+    height: 100px;
+    width: auto;
+}

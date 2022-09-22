@@ -1,0 +1,15 @@
+#cart img {
+    height: 75px;
+    width: auto;
+}
+
+#cart p {
+    margin: 1px;
+}
+
+#cart {
+    display: flex;
+    justify-content: center;
+    height: 100px;
+    border: 2px solid black;
+}

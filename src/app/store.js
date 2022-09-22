@@ -1,9 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
-
-function counterReducer(state) {
-  return state;
-}
+import cartReducer from './cartReducer';
 
 export const store = configureStore({
-  reducer: counterReducer,
+  reducer: cartReducer,
 });
