@@ -6,7 +6,7 @@ function CartItem({ item }) {
         <div className="cart_item">
             <img src={item.image_url} alt={item.name} />
             <p>{item.name}</p>
-            <p>${item.price}</p>
+            <p>{item.qty} x ${item.price}</p>
         </div>
     )
 }

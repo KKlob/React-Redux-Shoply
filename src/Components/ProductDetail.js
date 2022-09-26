@@ -1,12 +1,18 @@
 import React from 'react';
+import { useParams, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { addItem, removeItem } from '../app/actions';
-import { Link } from 'react-router-dom';
+import './ProductDetail.css';
 
-function Product({ item }) {
+function ProductDetail() {
+
+    const { key } = useParams();
 
     const dispatch = useDispatch();
-    const { cart } = useSelector(state => ({ cart: state.cart }));
+
+    const { products, cart } = { products: useSelector(store => store.products), cart: useSelector(store => store.cart) }
+
+    let item = products.find(item => item.key === key);
 
     function handleAdd() {
         dispatch({ ...addItem(), payload: { item } });
@@ -20,14 +26,15 @@ function Product({ item }) {
     }
 
     return (
-        <div className="product">
+        <div id="product-detail">
             <img src={item.image_url} alt={item.name} />
             <p>{item.name.toUpperCase()}</p>
             <p>${item.price}</p>
-            <p><Link to={`/products/${item.key}`}>Details</Link></p>
+            <p>{item.description}</p>
             <button className="AddToCartBtn" onClick={handleAdd}>Add To Cart</button><button className="RemoveFromCartBtn" onClick={handleRemove}>Remove From Cart</button>
+            <p><Link to="/">Back to Products</Link></p>
         </div>
     )
 }
 
-export default Product;
+export default ProductDetail;

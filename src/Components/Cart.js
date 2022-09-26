@@ -4,11 +4,11 @@ import './Cart.css';
 import uuid from 'react-uuid';
 
 
-function Cart({ items }) {
+function Cart({ cart }) {
 
     return (
         <div id="cart">
-            {items.map(item => <CartItem item={item} key={uuid()} />)}
+            {Object.keys(cart).map(itemName => <CartItem item={cart[itemName]} key={uuid()} />)}
         </div>
     )
 }
